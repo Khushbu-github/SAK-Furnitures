@@ -47,7 +47,7 @@ const Footer = () => {
           <div>
             <h4 className="font-heading font-bold text-base mb-5 text-white">Our Services</h4>
             <ul className="space-y-3">
-              {['Interior Wood Works', 'POP Ceiling Designs', 'Electric Light Design', 'MS & SS Welding', 'Commercial Interiors', 'Glass Work'].map((s) => (
+              {['Interior Wood Works', 'POP Ceiling Designs', 'Electric Light Design', 'MS & SS Welding', 'Commercial & Residences Interiors', 'Glass Work'].map((s) => (
                 <li key={s} className="text-white/50 text-sm">{s}</li>
               ))}
             </ul>

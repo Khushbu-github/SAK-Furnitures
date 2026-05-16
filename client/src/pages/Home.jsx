@@ -11,13 +11,14 @@ import bedroomImg from '../assets/bedroom.png';
 import diningImg from '../assets/diningroom.png';
 import kitchenImg from '../assets/kitchen.png';
 import livingImg from '../assets/livingroom.png';
+import officeImg from '../assets/office.jpg';
 
 const services = [
   { icon: <MdCarpenter size={34} />, title: 'Interior Wood Works',            desc: 'Custom-crafted woodwork and furniture with premium materials and fine finishes.' },
   { icon: <MdGridView size={34} />,  title: 'POP Ceiling Designs',            desc: 'Elegant pop ceilings, false ceilings, and decorative patterns.' },
   { icon: <MdElectricalServices size={34} />, title: 'Electric Light Design', desc: 'Interior light design and smart electrical solutions that enhance ambience.' },
   { icon: <MdBuild size={34} />,     title: 'MS & SS Welding Work',           desc: 'Precision metal fabrication for structural and decorative needs.' },
-  { icon: <FaStore size={34} />,     title: 'Commercial Interiors',           desc: 'Full-scale solutions for restaurants, offices, and retail spaces.' },
+  { icon: <FaStore size={34} />,     title: 'Commercial & Residences Interiors',           desc: 'Full-scale interior solutions for commercial spaces, offices, and residential homes.' },
   { icon: <MdOutlineWindow size={34} />, title: 'Glass Work',                 desc: 'Modern glass partitions, railings, doors, and decorative glass panels.' },
 ];
 
@@ -26,6 +27,7 @@ const rooms = [
   { id: 'bedroom', name: 'BEDROOM',  img: bedroomImg },
   { id: 'living',  name: 'LIVING',   img: livingImg  },
   { id: 'dining',  name: 'DINING',   img: diningImg  },
+  { id: 'office',  name: 'OFFICE',   img: officeImg  },
 ];
 
 // Alternating feature rows
@@ -185,8 +187,8 @@ export default function Home() {
             {hoveredRoom === 'living' && <div className="absolute inset-6 border border-brand-soft-teal/40 rounded-xl pointer-events-none animate-pulse" />}
           </div>
 
-          <div className="grid grid-cols-3 gap-4 w-full">
-            {[{ id:'kitchen', name:'KITCHEN', img:kitchenImg }, { id:'bedroom', name:'BEDROOM', img:bedroomImg }, { id:'dining', name:'DINING', img:diningImg }].map(room => (
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 w-full">
+            {[{ id:'kitchen', name:'KITCHEN', img:kitchenImg }, { id:'bedroom', name:'BEDROOM', img:bedroomImg }, { id:'dining', name:'DINING', img:diningImg }, { id:'office', name:'OFFICE', img:officeImg }].map(room => (
               <div key={room.id}
                 className="relative overflow-hidden group h-[350px] lg:h-[450px] rounded-2xl"
                 onMouseEnter={() => setHoveredRoom(room.id)}

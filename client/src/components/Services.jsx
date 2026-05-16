@@ -38,8 +38,8 @@ const services = [
   },
   {
     icon: <FaStore size={36} />,
-    title: 'Restaurant & Commercial Interiors',
-    desc: 'Full-scale commercial interior solutions for restaurants, offices, and retail spaces.',
+    title: 'Commercial & Residences Interiors',
+    desc: 'Full-scale interior solutions for commercial spaces, offices, and residential homes.',
     color: 'from-brand-plant-green/20 to-green-100/30',
     border: 'border-brand-plant-green/30',
     iconColor: 'text-brand-plant-green',
