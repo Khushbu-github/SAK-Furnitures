@@ -4,25 +4,13 @@ import Testimonials from '../components/Testimonials';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FiMaximize2, FiArrowRight, FiCheck } from 'react-icons/fi';
+import { FiArrowRight, FiCheck } from 'react-icons/fi';
 import { MdCarpenter, MdGridView, MdElectricalServices, MdBuild, MdOutlineWindow } from 'react-icons/md';
 import { FaStore } from 'react-icons/fa';
-import Lightbox from 'yet-another-react-lightbox';
-import 'yet-another-react-lightbox/styles.css';
-
 import bedroomImg from '../assets/bedroom.png';
 import diningImg from '../assets/diningroom.png';
 import kitchenImg from '../assets/kitchen.png';
 import livingImg from '../assets/livingroom.png';
-
-const g = (n) => new URL(`../assets/gallery/${n}.jpeg`, import.meta.url).href;
-
-const roomGalleries = {
-  kitchen:  { name: 'Modular Kitchens',  images: [g(1),g(2),g(3),g(4),g(5),g(6)] },
-  bedroom:  { name: 'Bedroom Designs',   images: [g(7),g(8),g(9),g(10),g(11),g(12)] },
-  living:   { name: 'Living Rooms',      images: [g(13),g(14),g(15),g(16),g(17),g(18)] },
-  dining:   { name: 'Dining Areas',      images: [g(19),g(20),g(21),g(22),g(23)] },
-};
 
 const services = [
   { icon: <MdCarpenter size={34} />, title: 'Interior Wood Works',            desc: 'Custom-crafted woodwork and furniture with premium materials and fine finishes.' },
@@ -82,10 +70,6 @@ const features = [
 
 export default function Home() {
   const [hoveredRoom, setHoveredRoom] = useState(null);
-  const [lightbox, setLightbox] = useState({ open: false, roomId: null });
-
-  const openGallery = (roomId) => setLightbox({ open: true, roomId });
-  const slides = lightbox.roomId ? roomGalleries[lightbox.roomId].images.map(src => ({ src })) : [];
 
   return (
     <Layout>
@@ -181,26 +165,22 @@ export default function Home() {
             Explore Our <span className="text-gradient">Portfolio</span>
           </h2>
           <p className="text-brand-charcoal/60 max-w-xl mx-auto">
-            Click any space to browse real projects from that category.
+            Browse our diverse range of interior spaces.
           </p>
         </motion.div>
 
         {/* Desktop */}
         <div className="hidden md:block w-full max-w-[1400px] mx-auto">
           <div
-            className="relative overflow-hidden group cursor-pointer h-[400px] lg:h-[500px] mb-4 rounded-2xl"
+            className="relative overflow-hidden group h-[400px] lg:h-[500px] mb-4 rounded-2xl"
             onMouseEnter={() => setHoveredRoom('living')}
             onMouseLeave={() => setHoveredRoom(null)}
-            onClick={() => openGallery('living')}
           >
             <img src={livingImg} alt="LIVING ROOM" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
             <div className={`absolute inset-0 transition-all duration-700 ${hoveredRoom === 'living' ? 'bg-brand-deep-teal/25 backdrop-blur-[2px]' : 'bg-brand-dark-navy/30'}`} />
             <div className="absolute inset-0 flex flex-col items-center justify-center">
               <h3 className={`text-5xl lg:text-8xl font-black text-white tracking-[0.3em] transition-all duration-700 ${hoveredRoom === 'living' ? 'scale-110' : 'scale-100 opacity-90'}`}
                 style={{ textShadow: '4px 4px 20px rgba(0,0,0,0.5)' }}>LIVING ROOM</h3>
-              <div className={`mt-4 flex items-center gap-2 text-brand-soft-teal transition-all duration-500 transform ${hoveredRoom === 'living' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                <FiMaximize2 size={16} /><span className="text-[10px] font-black uppercase tracking-[0.3em]">View Gallery</span>
-              </div>
             </div>
             {hoveredRoom === 'living' && <div className="absolute inset-6 border border-brand-soft-teal/40 rounded-xl pointer-events-none animate-pulse" />}
           </div>
@@ -208,19 +188,15 @@ export default function Home() {
           <div className="grid grid-cols-3 gap-4 w-full">
             {[{ id:'kitchen', name:'KITCHEN', img:kitchenImg }, { id:'bedroom', name:'BEDROOM', img:bedroomImg }, { id:'dining', name:'DINING', img:diningImg }].map(room => (
               <div key={room.id}
-                className="relative overflow-hidden group cursor-pointer h-[350px] lg:h-[450px] rounded-2xl"
+                className="relative overflow-hidden group h-[350px] lg:h-[450px] rounded-2xl"
                 onMouseEnter={() => setHoveredRoom(room.id)}
                 onMouseLeave={() => setHoveredRoom(null)}
-                onClick={() => openGallery(room.id)}
               >
                 <img src={room.img} alt={room.name} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                 <div className={`absolute inset-0 transition-all duration-700 ${hoveredRoom === room.id ? 'bg-brand-deep-teal/25 backdrop-blur-[2px]' : 'bg-brand-dark-navy/25'}`} />
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
                   <h3 className={`text-2xl lg:text-4xl font-black text-white tracking-[0.2em] transition-all duration-700 ${hoveredRoom === room.id ? 'scale-110' : 'scale-100 opacity-90'}`}
                     style={{ textShadow: '2px 2px 15px rgba(0,0,0,0.5)' }}>{room.name}</h3>
-                  <div className={`mt-2 flex items-center gap-2 text-brand-soft-teal transition-all duration-500 transform ${hoveredRoom === room.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                    <FiMaximize2 size={12} /><span className="text-[8px] font-black uppercase tracking-[0.2em]">View Gallery</span>
-                  </div>
                 </div>
                 {hoveredRoom === room.id && <div className="absolute inset-4 border border-brand-soft-teal/40 rounded-xl pointer-events-none animate-pulse" />}
               </div>
@@ -231,14 +207,11 @@ export default function Home() {
         {/* Mobile */}
         <div className="md:hidden flex flex-col w-full gap-4">
           {rooms.map(room => (
-            <div key={room.id} className="relative overflow-hidden h-[280px] rounded-2xl cursor-pointer" onClick={() => openGallery(room.id)}>
+            <div key={room.id} className="relative overflow-hidden h-[280px] rounded-2xl">
               <img src={room.img} alt={room.name} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-brand-dark-navy/35" />
               <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <h3 className="text-4xl font-black text-white tracking-[0.2em]" style={{ textShadow: '2px 2px 12px rgba(0,0,0,0.6)' }}>{room.name}</h3>
-                <div className="mt-2 flex items-center gap-2 text-brand-soft-teal">
-                  <FiMaximize2 size={14} /><span className="text-[10px] font-black uppercase tracking-[0.2em]">View Gallery</span>
-                </div>
               </div>
             </div>
           ))}
@@ -289,8 +262,6 @@ export default function Home() {
 
       {/* ── Testimonials ── */}
       <Testimonials />
-
-      <Lightbox open={lightbox.open} close={() => setLightbox({ open: false, roomId: null })} slides={slides} />
     </Layout>
   );
 }
