@@ -32,10 +32,8 @@ const Navbar = () => {
 
   const isActive = (path) => location.pathname === path;
 
-  const textColor = (isHome && !scrolled) ? 'text-white' : 'text-brand-charcoal';
-  const navBg = scrolled || !isHome
-    ? 'bg-white/90 backdrop-blur-xl shadow-lg shadow-brand-deep-teal/10'
-    : 'bg-transparent';
+  const textColor = 'text-brand-charcoal';
+  const navBg = 'bg-white/50 backdrop-blur-xl shadow-lg shadow-brand-deep-teal/10';
 
   return (
     <motion.header
@@ -89,20 +87,14 @@ const Navbar = () => {
             <Link
               to="/admin/login"
               title="Admin Login"
-              className={`p-2 rounded-lg transition-colors duration-200 ${
-                scrolled || !isHome
-                  ? 'text-brand-charcoal/40 hover:text-brand-deep-teal hover:bg-brand-deep-teal/10'
-                  : 'text-white/40 hover:text-white hover:bg-white/10'
-              }`}
+              className="p-2 rounded-lg transition-colors duration-200 text-brand-charcoal/40 hover:text-brand-deep-teal hover:bg-brand-deep-teal/10"
             >
               <FiLock size={18} />
             </Link>
 
             <button
               id="mobile-menu-toggle"
-              className={`md:hidden p-2 rounded-lg transition-colors duration-300 ${
-                scrolled || !isHome ? 'text-brand-charcoal hover:bg-brand-light-gray' : 'text-white hover:bg-white/10'
-              }`}
+              className="md:hidden p-2 rounded-lg transition-colors duration-300 text-brand-charcoal hover:bg-brand-light-gray"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
