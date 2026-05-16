@@ -43,13 +43,13 @@ const Navbar = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${navBg}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`flex items-center justify-between transition-all duration-500 ${scrolled ? 'h-16' : 'h-20'}`}>
+        <div className={`flex items-center justify-between transition-all duration-500 h-20`}>
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
             <img
               src={logo}
               alt="SAK Furniture & Interiors"
-              className={`w-auto object-contain transition-all duration-500 group-hover:scale-105 ${scrolled ? 'h-12' : 'h-16'}`}
+              className={`w-auto object-contain transition-all duration-500 group-hover:scale-105 h-16`}
             />
           </Link>
 
