@@ -7,11 +7,13 @@ import { Link } from 'react-router-dom';
 import { FiArrowRight, FiCheck } from 'react-icons/fi';
 import { MdCarpenter, MdGridView, MdElectricalServices, MdBuild, MdOutlineWindow } from 'react-icons/md';
 import { FaStore } from 'react-icons/fa';
-import bedroomImg from '../assets/bedroom.png';
-import diningImg from '../assets/diningroom.png';
-import kitchenImg from '../assets/kitchen.png';
-import livingImg from '../assets/livingroom.png';
-import officeImg from '../assets/office.jpg';
+import bedroomImg from '../assets/bedroom.jpeg';
+import livingImg from '../assets/livingroom.jpeg';
+import kitchen1Img from '../assets/kitchen1.jpeg';
+import kitchen2Img from '../assets/kitchen2.jpeg';
+import kitchen3Img from '../assets/kitchen3.jpeg';
+import divider1Img from '../assets/DecorativeRoomDivider1.jpeg';
+import divider2Img from '../assets/DecorativeRoomDivider2.jpeg';
 
 const services = [
   { icon: <MdCarpenter size={34} />, title: 'Interior Wood Works',            desc: 'Custom-crafted woodwork and furniture with premium materials and fine finishes.' },
@@ -23,21 +25,23 @@ const services = [
 ];
 
 const rooms = [
-  { id: 'kitchen', name: 'KITCHEN',  img: kitchenImg },
-  { id: 'bedroom', name: 'BEDROOM',  img: bedroomImg },
-  { id: 'living',  name: 'LIVING',   img: livingImg  },
-  { id: 'dining',  name: 'DINING',   img: diningImg  },
-  { id: 'office',  name: 'OFFICE',   img: officeImg  },
+  { id: 'living', name: 'LIVING ROOM', img: livingImg },
+  { id: 'kitchen1', name: 'KITCHEN', img: kitchen1Img },
+  { id: 'bedroom', name: 'BEDROOM', img: bedroomImg },
+  { id: 'divider1', name: 'ROOM DIVIDER', img: divider1Img },
+  { id: 'kitchen2', name: 'MODULAR KITCHEN', img: kitchen2Img },
+  { id: 'divider2', name: 'DECORATIVE', img: divider2Img },
+  { id: 'kitchen3', name: 'INTERIORS', img: kitchen3Img },
 ];
 
 // Alternating feature rows
 const features = [
   {
-    img: kitchenImg,
+    img: kitchen1Img,
     tag: 'Modular Kitchens',
     title: 'Kitchens Built for\nReal Living',
-    desc: 'We design smart, beautiful modular kitchens that balance workflow, storage, and aesthetics. Every cabinet, countertop, and fitting is chosen to last decades.',
-    points: ['Modular & semi-modular layouts', 'Premium laminate & acrylic finishes', 'Smart storage solutions', 'Custom island & breakfast counter'],
+    desc: 'Transform your culinary space into the heart of your home. We meticulously design smart, beautifully crafted modular kitchens that perfectly balance ergonomic workflow, intelligent storage solutions, and breathtaking aesthetics. Every cabinet, premium countertop, and high-quality fitting is hand-selected to withstand decades of daily use while maintaining its elegant appeal.',
+    points: ['Bespoke modular & semi-modular layouts', 'Premium scratch-resistant laminate & acrylic finishes', 'Intelligent space-saving storage mechanisms', 'Custom-designed kitchen islands & breakfast counters'],
     id: 'kitchen',
     reverse: false,
   },
@@ -45,26 +49,26 @@ const features = [
     img: bedroomImg,
     tag: 'Bedroom Interiors',
     title: 'Bedrooms Designed\nfor Deep Rest',
-    desc: 'From wardrobe design to ambient lighting — we craft bedrooms that feel like a private retreat. Serene, personalised, and built with the finest materials.',
-    points: ['Floor-to-ceiling wardrobes', 'Mood & task lighting design', 'Custom headboard & panelling', 'Integrated study & dressing zones'],
+    desc: 'Escape into a private sanctuary crafted just for you. From bespoke floor-to-ceiling wardrobe designs to perfectly calibrated ambient lighting, we curate bedrooms that feel like a luxurious, serene retreat. Every texture and hue is personalized to induce relaxation, built with the finest, ethically sourced materials for a truly restful atmosphere.',
+    points: ['Customized floor-to-ceiling sliding wardrobes', 'Atmospheric mood & functional task lighting', 'Handcrafted custom headboards & wall panelling', 'Seamlessly integrated study & dressing zones'],
     id: 'bedroom',
     reverse: true,
   },
   {
-    img: diningImg,
-    tag: 'Dining Spaces',
-    title: 'Dining Rooms That\nBring People Together',
-    desc: 'A dining room should feel both grand and welcoming. We design spaces that set the perfect mood for family meals, celebrations, and everyday moments.',
-    points: ['Statement lighting fixtures', 'Custom dining furniture', 'Crockery unit & buffet design', 'Acoustic & comfort planning'],
-    id: 'dining',
+    img: divider1Img,
+    tag: 'Room Dividers',
+    title: 'Elegant Room Dividers\n& Partitions',
+    desc: 'Redefine your open-plan living spaces with our exquisite custom decorative room dividers. We specialize in designing architectural partitions that elegantly introduce privacy and define distinct zones without ever sacrificing the flow of natural light. It is the perfect blend of artistic statement and functional separation.',
+    points: ['Precision CNC-cut customized geometric designs', 'Premium solid wood, metal & fluted glass partitions', 'Intelligent spatial optimization and zoning', 'Seamless blend of modern and traditional patterns'],
+    id: 'divider',
     reverse: false,
   },
   {
     img: livingImg,
     tag: 'Living Rooms',
     title: 'Living Rooms That\nMake an Impression',
-    desc: 'Your living room is the heart of your home. We create living spaces that are as comfortable as they are visually stunning — spaces you are proud to show.',
-    points: ['Feature wall & TV panel design', 'Seating & upholstery planning', 'False ceiling with cove lighting', 'Decor & soft furnishing guidance'],
+    desc: 'Your living room sets the tone for your entire home. We conceive and create living spaces that are as luxuriously comfortable as they are visually spectacular. From grand feature walls to intimate seating arrangements, we design environments that invite connection, celebrate your personal style, and leave a lasting impression on every guest.',
+    points: ['Striking feature walls & integrated TV panels', 'Ergonomic seating & bespoke upholstery planning', 'Architectural false ceilings with warm cove lighting', 'Curated decor & premium soft furnishing guidance'],
     id: 'living',
     reverse: true,
   },
@@ -187,8 +191,15 @@ export default function Home() {
             {hoveredRoom === 'living' && <div className="absolute inset-6 border border-brand-soft-teal/40 rounded-xl pointer-events-none animate-pulse" />}
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 w-full">
-            {[{ id:'kitchen', name:'KITCHEN', img:kitchenImg }, { id:'bedroom', name:'BEDROOM', img:bedroomImg }, { id:'dining', name:'DINING', img:diningImg }, { id:'office', name:'OFFICE', img:officeImg }].map(room => (
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 w-full">
+            {[
+              { id: 'kitchen1', name: 'KITCHEN', img: kitchen1Img },
+              { id: 'bedroom', name: 'BEDROOM', img: bedroomImg },
+              { id: 'divider1', name: 'ROOM DIVIDER', img: divider1Img },
+              { id: 'kitchen2', name: 'MODULAR KITCHEN', img: kitchen2Img },
+              { id: 'divider2', name: 'DECORATIVE', img: divider2Img },
+              { id: 'kitchen3', name: 'INTERIORS', img: kitchen3Img }
+            ].map(room => (
               <div key={room.id}
                 className="relative overflow-hidden group h-[350px] lg:h-[450px] rounded-2xl"
                 onMouseEnter={() => setHoveredRoom(room.id)}
@@ -197,7 +208,7 @@ export default function Home() {
                 <img src={room.img} alt={room.name} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                 <div className={`absolute inset-0 transition-all duration-700 ${hoveredRoom === room.id ? 'bg-brand-deep-teal/25 backdrop-blur-[2px]' : 'bg-brand-dark-navy/25'}`} />
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <h3 className={`text-2xl lg:text-4xl font-black text-white tracking-[0.2em] transition-all duration-700 ${hoveredRoom === room.id ? 'scale-110' : 'scale-100 opacity-90'}`}
+                  <h3 className={`text-2xl lg:text-3xl font-black text-white tracking-[0.2em] transition-all duration-700 text-center px-4 ${hoveredRoom === room.id ? 'scale-110' : 'scale-100 opacity-90'}`}
                     style={{ textShadow: '2px 2px 15px rgba(0,0,0,0.5)' }}>{room.name}</h3>
                 </div>
                 {hoveredRoom === room.id && <div className="absolute inset-4 border border-brand-soft-teal/40 rounded-xl pointer-events-none animate-pulse" />}
@@ -261,6 +272,135 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* ── Design Process ── */}
+      <section className="py-24 bg-white border-y" style={{ borderColor: 'rgba(11,143,139,0.08)' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <span className="text-brand-deep-teal text-xs font-bold tracking-[0.4em] uppercase mb-4 block">How We Work</span>
+            <h2 className="font-heading text-3xl md:text-5xl font-bold text-brand-dark-navy">Our Design Process</h2>
+            <p className="text-brand-charcoal/60 text-sm md:text-base max-w-xl mx-auto mt-4">
+              A seamless, transparent journey from your first idea to the final reveal.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+            {/* Connecting line for desktop */}
+            <div className="hidden md:block absolute top-1/2 left-0 w-full h-[1px] bg-brand-deep-teal/20 -z-10 -translate-y-1/2" />
+            
+            {[
+              { step: '01', title: 'Consultation', desc: 'We meet to understand your vision, lifestyle, and budget requirements.' },
+              { step: '02', title: 'Design & Planning', desc: 'Our team creates detailed 3D models and precise material specifications.' },
+              { step: '03', title: 'Execution', desc: 'Our master craftsmen build and install everything with absolute precision.' },
+              { step: '04', title: 'Handover', desc: 'A thorough quality check and final reveal of your stunning new space.' }
+            ].map((item, index) => (
+              <motion.div
+                key={item.step}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.15 }}
+                className="bg-white px-6 py-8 rounded-2xl border border-brand-deep-teal/10 shadow-lg shadow-brand-deep-teal/5 relative group hover:-translate-y-2 transition-transform duration-300"
+              >
+                <div className="w-12 h-12 bg-brand-dark-navy text-white rounded-full flex items-center justify-center font-heading font-bold text-xl mb-6 mx-auto group-hover:bg-brand-deep-teal transition-colors duration-300">
+                  {item.step}
+                </div>
+                <h3 className="text-brand-dark-navy font-bold text-lg text-center mb-3">{item.title}</h3>
+                <p className="text-brand-charcoal/60 text-sm text-center leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Why Choose Us ── */}
+      <section className="py-24 bg-brand-dark-navy text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="text-brand-soft-teal text-xs font-bold tracking-[0.4em] uppercase mb-4 block">The SAK Advantage</span>
+              <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6">Why Partner With Us?</h2>
+              <p className="text-white/70 text-base leading-relaxed mb-8">
+                For over three decades, we have built a reputation on uncompromising quality, absolute transparency, and design excellence. When you choose SAK Furniture & Interiors, you are investing in peace of mind.
+              </p>
+              <div className="flex items-center gap-6">
+                <div className="flex -space-x-4">
+                  <div className="w-12 h-12 rounded-full bg-brand-deep-teal border-2 border-brand-dark-navy flex items-center justify-center font-bold">30+</div>
+                  <div className="w-12 h-12 rounded-full bg-white border-2 border-brand-dark-navy flex items-center justify-center text-brand-dark-navy font-bold">Yrs</div>
+                </div>
+                <p className="text-sm text-white/80 font-medium">Of Unmatched Industry<br/>Experience in Bangalore</p>
+              </div>
+            </motion.div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {[
+                { title: 'Premium Quality', desc: 'Only the finest ethically sourced wood, marine ply, and hardware.', delay: 0.2 },
+                { title: 'Transparent Pricing', desc: 'No hidden costs. Detailed quotations mapped to your exact budget.', delay: 0.3 },
+                { title: 'On-Time Delivery', desc: 'Strict adherence to timelines without compromising on finish.', delay: 0.4 },
+                { title: 'In-House Experts', desc: 'From designers to carpenters, our team is entirely in-house.', delay: 0.5 }
+              ].map((adv) => (
+                <motion.div
+                  key={adv.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: adv.delay }}
+                  className="bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/10 transition-colors duration-300"
+                >
+                  <div className="w-3 h-3 bg-brand-soft-teal rounded-full mb-4" />
+                  <h3 className="font-bold text-lg mb-2">{adv.title}</h3>
+                  <p className="text-white/60 text-sm leading-relaxed">{adv.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Call To Action ── */}
+      <section className="py-20 bg-[#f7fafa]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-gradient-to-br from-brand-deep-teal to-brand-soft-teal rounded-3xl p-10 md:p-16 text-center relative overflow-hidden shadow-2xl shadow-brand-deep-teal/30"
+          >
+            {/* Background embellishments */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-dark-navy/10 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3" />
+            
+            <div className="relative z-10">
+              <h2 className="font-heading text-3xl md:text-5xl font-bold text-white mb-6">
+                Ready to Transform Your Space?
+              </h2>
+              <p className="text-white/90 text-lg max-w-2xl mx-auto mb-10">
+                Book a free consultation with our design experts today and take the first step toward the home of your dreams.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link to="/contact" className="px-8 py-4 bg-white text-brand-deep-teal font-bold rounded-xl hover:bg-brand-dark-navy hover:text-white transition-all duration-300 shadow-lg hover:-translate-y-1">
+                  Get a Free Quote
+                </Link>
+                <Link to="/gallery" className="px-8 py-4 bg-transparent border-2 border-white/40 text-white font-bold rounded-xl hover:bg-white/10 transition-all duration-300">
+                  Explore Gallery
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* ── Testimonials ── */}
       <Testimonials />

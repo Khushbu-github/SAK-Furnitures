@@ -3,10 +3,10 @@ import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FiAward, FiUsers, FiHome, FiStar } from 'react-icons/fi';
 
-import kitchenImg  from '../assets/kitchen.png';
-import bedroomImg  from '../assets/bedroom.png';
-import livingImg   from '../assets/livingroom.png';
-import diningImg   from '../assets/diningroom.png';
+import kitchenImg  from '../assets/kitchen1.jpeg';
+import bedroomImg  from '../assets/bedroom.jpeg';
+import livingImg   from '../assets/livingroom.jpeg';
+import dividerImg  from '../assets/DecorativeRoomDivider1.jpeg';
 
 const stats = [
   { value: '30+', label: 'Years Experience', icon: <FiAward size={22} /> },
@@ -16,10 +16,10 @@ const stats = [
 ];
 
 const spaces = [
-  { img: kitchenImg,  title: 'Modular Kitchens',   desc: 'Smart layouts, premium materials, and sleek finishes for a kitchen you love spending time in.' },
-  { img: bedroomImg,  title: 'Bedroom Interiors',  desc: 'Serene, personalised retreats with custom wardrobes, mood lighting, and refined detailing.' },
-  { img: livingImg,   title: 'Living Rooms',        desc: 'Impressive living spaces that balance comfort with style — the heart of every home we design.' },
-  { img: diningImg,   title: 'Dining Spaces',       desc: 'Warm, elegant dining rooms built for family moments, celebrations, and everyday gatherings.' },
+  { img: kitchenImg,  title: 'Modular Kitchens',   desc: 'Intelligently engineered layouts featuring premium, durable materials and sleek, contemporary finishes to create a culinary workspace you will genuinely love spending time in.' },
+  { img: bedroomImg,  title: 'Bedroom Interiors',  desc: 'Serene, deeply personalized retreats complete with bespoke customized wardrobes, atmospheric mood lighting, and refined architectural detailing for ultimate relaxation.' },
+  { img: livingImg,   title: 'Living Rooms',        desc: 'Visually impressive and deeply inviting living spaces that strike the perfect balance between luxurious comfort and sophisticated style — the true heart of every home we design.' },
+  { img: dividerImg,  title: 'Room Dividers',       desc: 'Exquisitely crafted decorative room dividers and architectural partitions that elegantly establish privacy and spatial definition without sacrificing the flow of natural light.' },
 ];
 
 const About = () => {

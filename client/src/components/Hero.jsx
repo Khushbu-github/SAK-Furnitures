@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import heroImg from '../assets/livingroom.png';
+import heroImg from '../assets/livingroom.jpeg';
 
 const Hero = () => {
   const ref = useRef(null);
