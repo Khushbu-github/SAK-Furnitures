@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMenu, FiX, FiLock } from 'react-icons/fi';
-import { FaWhatsapp } from 'react-icons/fa';
+import { FaWhatsapp, FaInstagram } from 'react-icons/fa';
 import logo from '../assets/logo.png';
 
 const navLinks = [
@@ -61,14 +61,12 @@ const Navbar = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium tracking-wide transition-all duration-300 relative group whitespace-nowrap ${textColor} ${
-                  isActive(link.path) ? 'font-semibold' : ''
-                }`}
+                className={`text-sm font-medium tracking-wide transition-all duration-300 relative group whitespace-nowrap ${textColor} ${isActive(link.path) ? 'font-semibold' : ''
+                  }`}
               >
                 {link.label}
-                <span className={`absolute -bottom-1 left-0 h-0.5 bg-brand-deep-teal rounded-full transition-all duration-300 ${
-                  isActive(link.path) ? 'w-full' : 'w-0 group-hover:w-full'
-                }`} />
+                <span className={`absolute -bottom-1 left-0 h-0.5 bg-brand-deep-teal rounded-full transition-all duration-300 ${isActive(link.path) ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`} />
               </Link>
             ))}
           </nav>
@@ -83,6 +81,16 @@ const Navbar = () => {
             >
               <FaWhatsapp className="text-lg" />
               WhatsApp Us
+            </a>
+
+            <a
+              href="https://www.instagram.com/s.a.k.furnituresandinteriors?utm_source=qr&igsh=NzluajFneWhwY20z"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:flex items-center justify-center w-10 h-10 rounded-full border border-brand-deep-teal/30 text-brand-deep-teal hover:bg-brand-deep-teal hover:text-white transition-all duration-300"
+              title="Follow on Instagram"
+            >
+              <FaInstagram size={18} />
             </a>
 
             {/* Admin icon */}
@@ -121,24 +129,34 @@ const Navbar = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`text-left py-3 px-4 rounded-xl text-sm font-medium transition-colors duration-200 ${
-                    isActive(link.path)
+                  className={`text-left py-3 px-4 rounded-xl text-sm font-medium transition-colors duration-200 ${isActive(link.path)
                       ? 'bg-brand-deep-teal/10 text-brand-deep-teal font-semibold'
                       : 'text-brand-charcoal hover:bg-brand-deep-teal/10 hover:text-brand-deep-teal'
-                  }`}
+                    }`}
                 >
                   {link.label}
                 </Link>
               ))}
-              <a
-                href="https://wa.me/919845578585"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-brand-deep-teal text-white font-semibold py-3 rounded-xl mt-2"
-              >
-                <FaWhatsapp className="text-lg" />
-                WhatsApp Us
-              </a>
+              <div className="flex gap-2 mt-2">
+                <a
+                  href="https://wa.me/919845578585"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 flex items-center justify-center gap-2 bg-brand-deep-teal text-white font-semibold py-3 rounded-xl"
+                >
+                  <FaWhatsapp className="text-lg" />
+                  WhatsApp
+                </a>
+                <a
+                  href="https://www.instagram.com/s.a.k.furnituresandinteriors?utm_source=qr&igsh=NzluajFneWhwY20z"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-shrink-0 w-12 flex items-center justify-center bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white rounded-xl"
+                  aria-label="Instagram"
+                >
+                  <FaInstagram size={20} />
+                </a>
+              </div>
             </div>
           </motion.div>
         )}

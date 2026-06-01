@@ -20,9 +20,24 @@ const Contact = () => {
     }
     setSubmitting(true);
     try {
+      // 1. Submit to Backend (for admin dashboard)
       await submitContact(form);
-      toast.success("Message sent! We'll get back to you soon.", { duration: 5000 });
+
+      // 2. Prepare WhatsApp message
+      const whatsappNumber = '919845578585';
+      const text = `*New Inquiry from SAK Website*\n\n*Name:* ${form.name}\n*Phone:* ${form.phone}\n*Message:* ${form.message}`;
+      const encodedText = encodeURIComponent(text);
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
+
+      toast.success("Message sent! Redirecting to WhatsApp...", { duration: 3000 });
+
+      // 3. Reset form and Redirect
       setForm({ name: '', phone: '', message: '' });
+
+      setTimeout(() => {
+        window.open(whatsappUrl, '_blank');
+      }, 1500);
+
     } catch {
       toast.error('Failed to send. Please call us directly.');
     } finally {

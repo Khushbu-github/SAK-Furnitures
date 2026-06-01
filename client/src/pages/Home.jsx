@@ -7,31 +7,42 @@ import { Link } from 'react-router-dom';
 import { FiArrowRight, FiCheck } from 'react-icons/fi';
 import { MdCarpenter, MdGridView, MdElectricalServices, MdBuild, MdOutlineWindow } from 'react-icons/md';
 import { FaStore } from 'react-icons/fa';
-import bedroomImg from '../assets/bedroom.jpeg';
-import livingImg from '../assets/livingroom.jpeg';
-import kitchen1Img from '../assets/kitchen1.jpeg';
-import kitchen2Img from '../assets/kitchen2.jpeg';
-import kitchen3Img from '../assets/kitchen3.jpeg';
+import Lightbox from 'yet-another-react-lightbox';
+import 'yet-another-react-lightbox/styles.css';
+
+import bedroomImg from '../assets/Bedroom.png';
+import livingImg from '../assets/Livingroom.png';
+import kitchen1Img from '../assets/Kitchen.png';
+import diningImg from '../assets/Diningroom.png';
+import officeImg from '../assets/office.jpg';
+import washroomImg from '../assets/washroom.jpg';
 import divider1Img from '../assets/DecorativeRoomDivider1.jpeg';
 import divider2Img from '../assets/DecorativeRoomDivider2.jpeg';
 
+// Category Image Sets
+import k1 from '../assets/k1.jpg'; import k2 from '../assets/k2.jpg'; import k3 from '../assets/k3.jpg'; import k4 from '../assets/k4.jpg'; import k5 from '../assets/k5.jpg';
+import b1 from '../assets/b1.jpg'; import b2 from '../assets/b2.jpg'; import b3 from '../assets/b3.jpg'; import b4 from '../assets/b4.jpg'; import b5 from '../assets/b5.jpg';
+import d1 from '../assets/d1.jpg'; import d2 from '../assets/d2.jpg'; import d3 from '../assets/d3.jpg'; import d4 from '../assets/d4.jpg'; import d5 from '../assets/d5.jpg';
+import l1 from '../assets/l1.jpg'; import l2 from '../assets/l2.jpg'; import l3 from '../assets/l3.jpg'; import l4 from '../assets/l4.jpg'; import l5 from '../assets/l5.jpg';
+import o1 from '../assets/o1.jpg'; import o2 from '../assets/o2.jpg'; import o3 from '../assets/o3.jpg'; import o4 from '../assets/o4.jpg';
+import w1 from '../assets/w1.jpg'; import w2 from '../assets/w2.jpg'; import w3 from '../assets/w3.jpg'; import w4 from '../assets/w4.jpg'; import w5 from '../assets/w5.jpg';
+
 const services = [
-  { icon: <MdCarpenter size={34} />, title: 'Interior Wood Works',            desc: 'Custom-crafted woodwork and furniture with premium materials and fine finishes.' },
-  { icon: <MdGridView size={34} />,  title: 'POP Ceiling Designs',            desc: 'Elegant pop ceilings, false ceilings, and decorative patterns.' },
+  { icon: <MdCarpenter size={34} />, title: 'Interior Wood Works', desc: 'Custom-crafted woodwork and furniture with premium materials and fine finishes.' },
+  { icon: <MdGridView size={34} />, title: 'POP Ceiling Designs', desc: 'Elegant pop ceilings, false ceilings, and decorative patterns.' },
   { icon: <MdElectricalServices size={34} />, title: 'Electric Light Design', desc: 'Interior light design and smart electrical solutions that enhance ambience.' },
-  { icon: <MdBuild size={34} />,     title: 'MS & SS Welding Work',           desc: 'Precision metal fabrication for structural and decorative needs.' },
-  { icon: <FaStore size={34} />,     title: 'Commercial & Residences Interiors',           desc: 'Full-scale interior solutions for commercial spaces, offices, and residential homes.' },
-  { icon: <MdOutlineWindow size={34} />, title: 'Glass Work',                 desc: 'Modern glass partitions, railings, doors, and decorative glass panels.' },
+  { icon: <MdBuild size={34} />, title: 'MS & SS Welding Work', desc: 'Precision metal fabrication for structural and decorative needs.' },
+  { icon: <FaStore size={34} />, title: 'Commercial & Residences Interiors', desc: 'Full-scale interior solutions for commercial spaces, offices, and residential homes.' },
+  { icon: <MdOutlineWindow size={34} />, title: 'Glass Work', desc: 'Modern glass partitions, railings, doors, and decorative glass panels.' },
 ];
 
 const rooms = [
-  { id: 'living', name: 'LIVING ROOM', img: livingImg },
-  { id: 'kitchen1', name: 'KITCHEN', img: kitchen1Img },
-  { id: 'bedroom', name: 'BEDROOM', img: bedroomImg },
-  { id: 'divider1', name: 'ROOM DIVIDER', img: divider1Img },
-  { id: 'kitchen2', name: 'MODULAR KITCHEN', img: kitchen2Img },
-  { id: 'divider2', name: 'DECORATIVE', img: divider2Img },
-  { id: 'kitchen3', name: 'INTERIORS', img: kitchen3Img },
+  { id: 'living', name: 'LIVING ROOM', img: livingImg, images: [l1, l2, l3, l4, l5] },
+  { id: 'bedroom', name: 'BEDROOM', img: bedroomImg, images: [b1, b2, b3, b4, b5] },
+  { id: 'kitchen', name: 'KITCHEN', img: kitchen1Img, images: [k1, k2, k3, k4, k5] },
+  { id: 'dining', name: 'DINING ROOM', img: diningImg, images: [d1, d2, d3, d4, d5] },
+  { id: 'office', name: 'OFFICE', img: officeImg, images: [o1, o2, o3, o4] },
+  { id: 'washroom', name: 'WASHROOM', img: washroomImg, images: [w1, w2, w3, w4, w5] },
 ];
 
 // Alternating feature rows
@@ -72,10 +83,38 @@ const features = [
     id: 'living',
     reverse: true,
   },
+  {
+    img: officeImg,
+    tag: 'Office Interiors',
+    title: 'Professional Workspaces\nEngineered for Focus',
+    desc: 'Elevate your productivity with bespoke office interiors designed for the modern professional. We combine ergonomic precision with high-end aesthetic appeal to create workspaces that inspire focus and project success. From integrated smart-storage to premium executive desk designs, we build the environment you need to excel.',
+    points: ['Ergonomic executive workstation designs', 'Integrated cable management & smart tech solutions', 'Custom-built library & archive storage units', 'Acoustic-enhanced spatial planning'],
+    id: 'office-feature',
+    reverse: false,
+  },
+  {
+    img: washroomImg,
+    tag: 'Washroom Interiors',
+    title: 'Luxurious Washrooms\nYour Private Sanctuary',
+    desc: 'Experience the ultimate in relaxation and hygiene with our high-end washroom designs. We transform utilitarian spaces into spa-like sanctuaries through intelligent spatial planning, premium sanitary ware selection, and sophisticated lighting. Every detail, from non-slip flooring to moisture-resistant finishes, is crafted for luxury and longevity.',
+    points: ['Premium high-end sanitary ware & fixtures', 'Intelligent wet & dry zone spatial planning', 'Sophisticated ambient & task lighting design', 'Moisture-resistant cabinetry & premium stone finishes'],
+    id: 'washroom-feature',
+    reverse: true,
+  },
 ];
 
 export default function Home() {
   const [hoveredRoom, setHoveredRoom] = useState(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImages, setCurrentImages] = useState([]);
+
+  const openRoomGallery = (room) => {
+    const roomData = rooms.find(r => r.id === room);
+    if (roomData && roomData.images) {
+      setCurrentImages(roomData.images.map(img => ({ src: img })));
+      setLightboxOpen(true);
+    }
+  };
 
   return (
     <Layout>
@@ -178,38 +217,35 @@ export default function Home() {
         {/* Desktop */}
         <div className="hidden md:block w-full max-w-[1400px] mx-auto">
           <div
-            className="relative overflow-hidden group h-[400px] lg:h-[500px] mb-4 rounded-2xl"
+            className="relative overflow-hidden group h-[400px] lg:h-[500px] mb-4 rounded-2xl cursor-pointer"
             onMouseEnter={() => setHoveredRoom('living')}
             onMouseLeave={() => setHoveredRoom(null)}
+            onClick={() => openRoomGallery('living')}
           >
             <img src={livingImg} alt="LIVING ROOM" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
             <div className={`absolute inset-0 transition-all duration-700 ${hoveredRoom === 'living' ? 'bg-brand-deep-teal/25 backdrop-blur-[2px]' : 'bg-brand-dark-navy/30'}`} />
             <div className="absolute inset-0 flex flex-col items-center justify-center">
               <h3 className={`text-5xl lg:text-8xl font-black text-white tracking-[0.3em] transition-all duration-700 ${hoveredRoom === 'living' ? 'scale-110' : 'scale-100 opacity-90'}`}
                 style={{ textShadow: '4px 4px 20px rgba(0,0,0,0.5)' }}>LIVING ROOM</h3>
+              <p className={`text-white/80 font-bold tracking-widest mt-4 transition-all duration-500 ${hoveredRoom === 'living' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>CLICK TO VIEW COLLECTION</p>
             </div>
             {hoveredRoom === 'living' && <div className="absolute inset-6 border border-brand-soft-teal/40 rounded-xl pointer-events-none animate-pulse" />}
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 w-full">
-            {[
-              { id: 'kitchen1', name: 'KITCHEN', img: kitchen1Img },
-              { id: 'bedroom', name: 'BEDROOM', img: bedroomImg },
-              { id: 'divider1', name: 'ROOM DIVIDER', img: divider1Img },
-              { id: 'kitchen2', name: 'MODULAR KITCHEN', img: kitchen2Img },
-              { id: 'divider2', name: 'DECORATIVE', img: divider2Img },
-              { id: 'kitchen3', name: 'INTERIORS', img: kitchen3Img }
-            ].map(room => (
+            {rooms.filter(r => r.id !== 'living').map(room => (
               <div key={room.id}
-                className="relative overflow-hidden group h-[350px] lg:h-[450px] rounded-2xl"
+                className="relative overflow-hidden group h-[350px] lg:h-[450px] rounded-2xl cursor-pointer"
                 onMouseEnter={() => setHoveredRoom(room.id)}
                 onMouseLeave={() => setHoveredRoom(null)}
+                onClick={() => openRoomGallery(room.id)}
               >
                 <img src={room.img} alt={room.name} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                 <div className={`absolute inset-0 transition-all duration-700 ${hoveredRoom === room.id ? 'bg-brand-deep-teal/25 backdrop-blur-[2px]' : 'bg-brand-dark-navy/25'}`} />
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
                   <h3 className={`text-2xl lg:text-3xl font-black text-white tracking-[0.2em] transition-all duration-700 text-center px-4 ${hoveredRoom === room.id ? 'scale-110' : 'scale-100 opacity-90'}`}
                     style={{ textShadow: '2px 2px 15px rgba(0,0,0,0.5)' }}>{room.name}</h3>
+                  <p className={`text-white/80 text-xs font-bold tracking-widest mt-2 transition-all duration-500 ${hoveredRoom === room.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>CLICK TO VIEW</p>
                 </div>
                 {hoveredRoom === room.id && <div className="absolute inset-4 border border-brand-soft-teal/40 rounded-xl pointer-events-none animate-pulse" />}
               </div>
@@ -217,14 +253,25 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Lightbox for Categories */}
+        <Lightbox
+          open={lightboxOpen}
+          close={() => setLightboxOpen(false)}
+          slides={currentImages}
+        />
+
         {/* Mobile */}
         <div className="md:hidden flex flex-col w-full gap-4">
           {rooms.map(room => (
-            <div key={room.id} className="relative overflow-hidden h-[280px] rounded-2xl">
+            <div key={room.id}
+              className="relative overflow-hidden h-[280px] rounded-2xl"
+              onClick={() => openRoomGallery(room.id)}
+            >
               <img src={room.img} alt={room.name} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-brand-dark-navy/35" />
               <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <h3 className="text-4xl font-black text-white tracking-[0.2em]" style={{ textShadow: '2px 2px 12px rgba(0,0,0,0.6)' }}>{room.name}</h3>
+                <p className="text-white/60 text-xs font-bold tracking-widest mt-2 uppercase">Tap to view collection</p>
               </div>
             </div>
           ))}
@@ -293,7 +340,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
             {/* Connecting line for desktop */}
             <div className="hidden md:block absolute top-1/2 left-0 w-full h-[1px] bg-brand-deep-teal/20 -z-10 -translate-y-1/2" />
-            
+
             {[
               { step: '01', title: 'Consultation', desc: 'We meet to understand your vision, lifestyle, and budget requirements.' },
               { step: '02', title: 'Design & Planning', desc: 'Our team creates detailed 3D models and precise material specifications.' },
@@ -339,7 +386,7 @@ export default function Home() {
                   <div className="w-12 h-12 rounded-full bg-brand-deep-teal border-2 border-brand-dark-navy flex items-center justify-center font-bold">30+</div>
                   <div className="w-12 h-12 rounded-full bg-white border-2 border-brand-dark-navy flex items-center justify-center text-brand-dark-navy font-bold">Yrs</div>
                 </div>
-                <p className="text-sm text-white/80 font-medium">Of Unmatched Industry<br/>Experience in Bangalore</p>
+                <p className="text-sm text-white/80 font-medium">Of Unmatched Industry<br />Experience in Bangalore</p>
               </div>
             </motion.div>
 
@@ -381,7 +428,7 @@ export default function Home() {
             {/* Background embellishments */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-dark-navy/10 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3" />
-            
+
             <div className="relative z-10">
               <h2 className="font-heading text-3xl md:text-5xl font-bold text-white mb-6">
                 Ready to Transform Your Space?

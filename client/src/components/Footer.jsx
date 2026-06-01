@@ -1,5 +1,5 @@
 import { FiPhone, FiMail } from 'react-icons/fi';
-import { FaWhatsapp } from 'react-icons/fa';
+import { FaWhatsapp, FaInstagram } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 
@@ -17,8 +17,16 @@ const Footer = () => {
             </p>
             <div className="flex gap-3">
               <a href="https://wa.me/919845578585" target="_blank" rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/10 hover:bg-green-500 rounded-lg flex items-center justify-center transition-colors duration-300">
+                className="w-10 h-10 bg-white/10 hover:bg-green-500 rounded-lg flex items-center justify-center transition-colors duration-300"
+                aria-label="WhatsApp"
+              >
                 <FaWhatsapp size={18} />
+              </a>
+              <a href="https://www.instagram.com/s.a.k.furnituresandinteriors?utm_source=qr&igsh=NzluajFneWhwY20z" target="_blank" rel="noopener noreferrer"
+                className="w-10 h-10 bg-white/10 hover:bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] rounded-lg flex items-center justify-center transition-colors duration-300"
+                aria-label="Instagram"
+              >
+                <FaInstagram size={18} />
               </a>
             </div>
           </div>

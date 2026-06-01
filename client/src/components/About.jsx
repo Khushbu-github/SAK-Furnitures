@@ -3,23 +3,27 @@ import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FiAward, FiUsers, FiHome, FiStar } from 'react-icons/fi';
 
-import kitchenImg  from '../assets/kitchen1.jpeg';
-import bedroomImg  from '../assets/bedroom.jpeg';
-import livingImg   from '../assets/livingroom.jpeg';
-import dividerImg  from '../assets/DecorativeRoomDivider1.jpeg';
+import kitchenImg from '../assets/Kitchen.png';
+import bedroomImg from '../assets/Bedroom.png';
+import livingImg from '../assets/Livingroom.png';
+import dividerImg from '../assets/DecorativeRoomDivider1.jpeg';
+import officeImg from '../assets/office.jpg';
+import washroomImg from '../assets/washroom.jpg';
 
 const stats = [
   { value: '30+', label: 'Years Experience', icon: <FiAward size={22} /> },
-  { value: '500+', label: 'Happy Clients',   icon: <FiUsers size={22} /> },
-  { value: '1000+', label: 'Projects Done',  icon: <FiHome size={22} /> },
-  { value: '4.9★', label: 'Client Rating',   icon: <FiStar size={22} /> },
+  { value: '500+', label: 'Happy Clients', icon: <FiUsers size={22} /> },
+  { value: '1000+', label: 'Projects Done', icon: <FiHome size={22} /> },
+  { value: '4.9★', label: 'Client Rating', icon: <FiStar size={22} /> },
 ];
 
 const spaces = [
-  { img: kitchenImg,  title: 'Modular Kitchens',   desc: 'Intelligently engineered layouts featuring premium, durable materials and sleek, contemporary finishes to create a culinary workspace you will genuinely love spending time in.' },
-  { img: bedroomImg,  title: 'Bedroom Interiors',  desc: 'Serene, deeply personalized retreats complete with bespoke customized wardrobes, atmospheric mood lighting, and refined architectural detailing for ultimate relaxation.' },
-  { img: livingImg,   title: 'Living Rooms',        desc: 'Visually impressive and deeply inviting living spaces that strike the perfect balance between luxurious comfort and sophisticated style — the true heart of every home we design.' },
-  { img: dividerImg,  title: 'Room Dividers',       desc: 'Exquisitely crafted decorative room dividers and architectural partitions that elegantly establish privacy and spatial definition without sacrificing the flow of natural light.' },
+  { img: kitchenImg, title: 'Modular Kitchens', desc: 'Intelligently engineered layouts featuring premium, durable materials and sleek, contemporary finishes to create a culinary workspace you will genuinely love spending time in.' },
+  { img: bedroomImg, title: 'Bedroom Interiors', desc: 'Serene, deeply personalized retreats complete with bespoke customized wardrobes, atmospheric mood lighting, and refined architectural detailing for ultimate relaxation.' },
+  { img: livingImg, title: 'Living Rooms', desc: 'Visually impressive and deeply inviting living spaces that strike the perfect balance between luxurious comfort and sophisticated style — the true heart of every home we design.' },
+  { img: dividerImg, title: 'Room Dividers', desc: 'Exquisitely crafted decorative room dividers and architectural partitions that elegantly establish privacy and spatial definition without sacrificing the flow of natural light.' },
+  { img: officeImg, title: 'Office Interiors', desc: 'Productive, ergonomic, and aesthetically pleasing office environments tailored for modern professionals, featuring custom integrated workstations and organized storage solutions.' },
+  { img: washroomImg, title: 'Washroom Interiors', desc: 'Modern, high-end washroom designs featuring premium sanitary ware, intelligent spatial planning, and sophisticated tiling for a spa-like experience at home.' },
 ];
 
 const About = () => {

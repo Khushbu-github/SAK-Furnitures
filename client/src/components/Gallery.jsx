@@ -4,11 +4,6 @@ import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 import { getGalleryItems } from '../utils/api';
 
-const localImages = Array.from({ length: 23 }, (_, i) => ({
-  _id: `local-${i + 1}`,
-  title: `SAK Interior Project ${i + 1}`,
-  imageUrl: new URL(`../assets/gallery/${i + 1}.jpeg`, import.meta.url).href,
-}));
 
 const GridIcon = ({ cols }) => {
   const colClass = cols === 2 ? 'grid-cols-2' : cols === 3 ? 'grid-cols-3' : 'grid-cols-4';
@@ -37,7 +32,7 @@ const Gallery = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  const allItems = [...localImages, ...apiImages];
+  const allItems = apiImages;
 
   const slides = allItems.map((item) => ({
     src: item.imageUrl || item.cloudinaryUrl,
@@ -62,11 +57,10 @@ const Gallery = () => {
               <button
                 key={size}
                 onClick={() => setGridSize(size)}
-                className={`p-2 rounded-lg transition-all duration-300 ${
-                  gridSize === size
+                className={`p-2 rounded-lg transition-all duration-300 ${gridSize === size
                     ? 'bg-[#D4A373] text-white shadow-md transform scale-110'
                     : 'text-brand-charcoal/60 hover:text-brand-deep-teal hover:bg-gray-50'
-                }`}
+                  }`}
                 aria-label={`Set grid size to ${size}`}
               >
                 <GridIcon cols={size} />
