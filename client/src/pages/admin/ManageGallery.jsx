@@ -38,6 +38,7 @@ const ManageGallery = () => {
     try {
       const fd = new FormData();
       fd.append('image', file);
+      fd.append('title', file.name.split('.')[0]); // Default title from filename
       fd.append('category', 'All');
       await uploadGalleryItem(fd);
       toast.success('Image uploaded successfully!');
@@ -86,7 +87,7 @@ const ManageGallery = () => {
             ) : (
               <>
                 <div className="w-16 h-16 bg-[#0B8F8B]/10 text-brand-deep-teal rounded-full flex items-center justify-center mb-2">
-                    <FiUpload size={24} />
+                  <FiUpload size={24} />
                 </div>
                 <p className="text-brand-charcoal/60 text-sm text-center font-medium">Click to select image or drag and drop<br /><span className="text-[10px] font-bold uppercase tracking-widest mt-2 block">JPG, PNG, WebP (Max 5MB)</span></p>
               </>
